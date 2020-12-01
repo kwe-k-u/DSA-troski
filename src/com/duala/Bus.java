@@ -2,8 +2,8 @@ package com.duala;
 
 //arraybased circularly linked list
 public class Bus {
-    private int CAPACITY = 30;
-    private Seat[] layout = new Seat[this.CAPACITY]; //The bus has 30 seats(exclusive of driver)
+    private final int CAPACITY = 30;
+    private final Seat[] layout = new Seat[this.CAPACITY]; //The bus has 30 seats(exclusive of driver)
     private int size;
     private int firstIndex;
 

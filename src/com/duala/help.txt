@@ -1,0 +1,8 @@
+
+//to add code to git up
+git commit -a -m "Short explanation of changes" //Making commit
+git push origin dev //putting code on github
+
+
+//to get code from github
+git pull origin dev
