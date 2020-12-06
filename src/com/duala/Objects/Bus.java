@@ -1,4 +1,4 @@
-package com.duala;
+package com.duala.Objects;
 
 //arraybased circularly linked list
 public class Bus {
@@ -6,6 +6,10 @@ public class Bus {
     private final Seat[] layout = new Seat[this.CAPACITY]; //The bus has 30 seats(exclusive of driver)
     private int size;
     private int firstIndex;
+    private String destination;
+    private String driverName;
+    private String LICENSEPLATE;//TODO add getters and setters
+
 
 
     private int findEmpty(){

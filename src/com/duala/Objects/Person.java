@@ -1,4 +1,4 @@
-package com.duala;
+package com.duala.Objects;
 
 import java.util.Objects;
 
@@ -6,6 +6,8 @@ public class Person {
     private String name;
     private String pickup;
     private String destination;
+    private double fare;
+    private Bus assignedBus; //TODO get setters and getters
 
     //Constructor
     public Person(String pickup, String name, String destination){
