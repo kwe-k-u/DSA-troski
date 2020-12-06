@@ -62,6 +62,34 @@ public class Person {
 
 
     /**
+     * This assigns a passenger to a bus with vacancy
+     * @param bus bus to which the passenger is assigned
+     * @throws IllegalStateException if the passenger is already assigned a bus
+     */
+    public void assignBus(Bus bus){
+        //If the passenger is not assigned a bus, give them one
+        if (this.getAssignedBus() == null) {
+            this.assignedBus = bus;
+            bus.addPassenger(this);
+        } else {//If the passenger already has a bus, reassign them a new bus.
+            throw new IllegalStateException();
+        }
+    }
+
+
+    /**
+     * Gets the passengers assigned bus
+     * @return Passenger's assigned bus
+     */
+    public Bus getAssignedBus(){
+        return this.assignedBus;
+    }
+
+
+
+
+
+    /**
      * Sets the new dropoff location for the passenger
      * @param location new location at which the person is to alight
      */

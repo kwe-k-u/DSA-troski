@@ -19,12 +19,17 @@ public class AddPassenger extends JFrame {
     private JLabel txt2;
     private JLabel txt3;
     private JLabel txt4;
+    private JButton cancel;
 
 
-    public AddPassenger(){
+    private JFrame caller;
+
+
+    public AddPassenger(JFrame caller){
         availableBuses.addItem("test");
         availableBuses.addItem("test1");
         availableBuses.addItem("test12");
+        this.caller = caller;
 
 
         /**
@@ -41,10 +46,16 @@ public class AddPassenger extends JFrame {
 
                 Person newPassenger = new Person("location of station", passName.getText(), passDestination.getText());
                 //TODO add person to main class list
-//                dispose();
+                dispose();
             }
         });
         init();
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
 
@@ -61,6 +72,10 @@ public class AddPassenger extends JFrame {
     }
 
 
-    //TODO add function to destroy the window
 
+    @Override
+    public void dispose() {
+        caller.setVisible(true);
+        super.dispose();
+    }
 }

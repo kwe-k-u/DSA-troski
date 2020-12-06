@@ -1,25 +1,29 @@
 package com.duala.UI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 public class StationTerminalUI extends JFrame {
-
-
     private JButton addPassengerButton;
     private JButton aboutButton;
     private JButton viewStationDataButton;
     private JButton closeApplicationButton;
     private JPanel DesktopUI;
-//    private ImageIcon image = new ImageIcon(Logo.png)
+
+
+
+
+
+    private JFrame parent = this;
+//    private ImageIcon image = new ImageIcon("logo.png");
+
 
     public StationTerminalUI(){
 
         setContentPane(DesktopUI);
-        setSize(400,600);
+        pack();
         setTitle("Troski System");
 //        setIconImage(image); //Program logo
         setResizable(false);
@@ -45,27 +49,16 @@ public class StationTerminalUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new AddPassenger();
+                new AddPassenger(parent);
             }
         });
 
-
-        /**
-         * Waits for other windows to close before making the frame visible
-         */
-        //TODO figure implementation
-        DesktopUI.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                super.componentResized(e);
-            }
-        });
 
 
         viewStationDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViewBuses n = new ViewBuses();
+                ViewBuses n = new ViewBuses(parent);
                 setVisible(false);
 
 
@@ -73,10 +66,15 @@ public class StationTerminalUI extends JFrame {
 
             }
         });
+
+        /**
+         * Displays window showing project details
+         */
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new About();
+                parent.setVisible(false);
+                new About(parent);
             }
         });
     }
