@@ -35,15 +35,26 @@ public class StationTerminal {
 //                return 1;
 //            }
 //    }
-//        countVacantBuses(node.next);
+//        return countVacantBuses(node.next);
 ////
 ////        if (!node.data.isFull()) //if a bus is not full increase count by one
 ////        {
 ////            countVacantBuses(node.next);
 ////            return 1;
 ////        }
-//
 //    }
+    public int countVacantBuses(Node node) {
+
+   int count = 0;
+   while (node.next != null){
+       if (!node.data.isFull())
+           count +=1;
+
+       node = node.next;
+        }
+
+   return count;
+    }
 
 
     /**
@@ -212,17 +223,13 @@ public class StationTerminal {
         return 0 == getSize();
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * Returns the first vehicle in the list
+     * @return
+     */
+    public Node getFirst() {
+        return this.head.next;
+    }
 
 
     static  class Node{
