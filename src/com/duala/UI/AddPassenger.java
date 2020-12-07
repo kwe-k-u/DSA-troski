@@ -1,6 +1,8 @@
 package com.duala.UI;
 
+import com.duala.Objects.Bus;
 import com.duala.Objects.Person;
+import com.duala.Objects.StationTerminal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,19 +15,19 @@ public class AddPassenger extends JFrame {
     private JTextField passName;
     private JTextField passDestination;
     private JComboBox availableBuses;
-    private JTextField passFare;
     private JPanel addPassengerPanel;
     private JLabel txt1;
     private JLabel txt2;
     private JLabel txt3;
-    private JLabel txt4;
     private JButton cancel;
 
 
-    private JFrame caller;
+    private StationTerminalUI caller;
 
 
-    public AddPassenger(JFrame caller){
+    public AddPassenger(StationTerminalUI caller){
+
+
         availableBuses.addItem("test");
         availableBuses.addItem("test1");
         availableBuses.addItem("test12");
@@ -45,31 +47,48 @@ public class AddPassenger extends JFrame {
                 //close window and open some other window
 
                 Person newPassenger = new Person("location of station", passName.getText(), passDestination.getText());
-                //TODO add person to main class list
+
+
+                Bus bus = caller.station.findbyLocation(passDestination.getText());
+                if (bus == null) {
+                    JDialog d = new JDialog();
+                    d.setContentPane(new JLabel("Addition failed"));
+                    d.setVisible(true);
+                    d.pack();
+                    d.requestFocus();
+
+                } else {
+                    bus.addPassenger(newPassenger);
+                    JDialog d = new JDialog();
+                    d.setContentPane(new JLabel("Addition successful"));
+                    d.setVisible(true);
+                    d.pack();
+                    d.requestFocus();
+
+                }
                 dispose();
             }
         });
-        init();
+
+
+        /**
+         * A click listener on CANCEL button on the interface
+         * This closes the window and displays the previous one when clicked
+         */
         cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-    }
 
-
-    /**
-     * Initialises the panel and attaches the components to the frame
-     */
-    public void init(){
 
         add(addPassengerPanel);
-
-
         pack();
         setVisible(true);
     }
+
+
 
 
 

@@ -1,5 +1,7 @@
 package com.duala.UI;
 
+import com.duala.Objects.StationTerminal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,20 +14,17 @@ public class StationTerminalUI extends JFrame {
     private JButton closeApplicationButton;
     private JPanel DesktopUI;
 
+    private StationTerminalUI parent = this;
+    public StationTerminal station;
 
 
 
+    public StationTerminalUI(StationTerminal stat){
 
-    private JFrame parent = this;
-//    private ImageIcon image = new ImageIcon("logo.png");
-
-
-    public StationTerminalUI(){
-
+        this.station = stat;
         setContentPane(DesktopUI);
         pack();
         setTitle("Troski System");
-//        setIconImage(image); //Program logo
         setResizable(false);
         setVisible(true);
 
@@ -54,7 +53,9 @@ public class StationTerminalUI extends JFrame {
         });
 
 
-
+        /**
+         * Displays window showing information on available buses
+         */
         viewStationDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,6 +78,9 @@ public class StationTerminalUI extends JFrame {
                 new About(parent);
             }
         });
+
+
     }
+
 
 }

@@ -1,5 +1,7 @@
 package com.duala.Objects;
 
+import java.util.Arrays;
+
 //arraybased circularly linked list
 public class Bus {
     private final int CAPACITY = 30;
@@ -9,6 +11,16 @@ public class Bus {
     private String destination;
     private String driverName;
     private String LICENSEPLATE;//TODO add getters and setters
+
+
+
+    public Bus(String plate, String destination, String driverName){
+        setLicensePlate(plate);
+        setDriverName(driverName);
+        setDestination(destination);
+
+    }
+
 
 
 
@@ -83,6 +95,14 @@ public class Bus {
     }
 
 
+    @Override
+    public String toString() {
+        return
+                ", size=" + size +
+                ", destination='" + destination + '\'' +
+                ", driverName='" + driverName + '\'' +
+                ", Registration Number='" + LICENSEPLATE + '\'' ;
+    }
 
     /**
      * Gives a boolean to check if the bus is empty
@@ -92,6 +112,29 @@ public class Bus {
         return this.size == 0;
     }
 
+    public String getLicensePlate() {
+        return LICENSEPLATE;
+    }
+
+    public void setLicensePlate(String li) {
+        this.LICENSEPLATE = li;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
 
     private class Seat{

@@ -1,6 +1,8 @@
 package com.duala.UI;
 
 
+import com.duala.Objects.Bus;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,15 +10,18 @@ import java.awt.event.ActionListener;
 public class ViewBuses extends JFrame{
     private JPanel panel1;
     private JTabbedPane BusList;
-    private JScrollPane busList;
     private JButton close;
+    private JButton addBus;
+    private JButton removeBus;
+    private JList busList;
     private JLabel lab = new JLabel("someting");
     private JFrame caller;
 
     public ViewBuses(JFrame caller){
-    for (int i = 0; i > 50; i++)
-        busList.add(lab,i); //TODO make this show
 
+        Bus bus = new Bus("GH456", "Nima","Kofi Mansa");
+        String[] test = {bus.toString(),bus.toString(),bus.toString()};
+        busList.setListData(test);
     add(panel1);
     this.caller = caller;
 
@@ -27,6 +32,16 @@ public class ViewBuses extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+
+
+        removeBus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO figure out how to remove vehicle from listview
+//                busList.setListData();
+//                busList.repaint();
             }
         });
     }

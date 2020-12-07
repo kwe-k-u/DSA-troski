@@ -3,7 +3,7 @@ package com.duala.Objects;
 import java.util.Objects;
 
 /**
- * This class models the trotro station
+ * This class models the trotro station using a doublyLinkedList
  * Building a digital abstraction that allows the station master to efficiently manage the buses in the stations
  */
 public class StationTerminal {
@@ -27,33 +27,22 @@ public class StationTerminal {
         return size;
     }
 
-//    public int countVacantBuses(Node node) {
-//
-//        //base case
-//        if (node.next == null){
-//            if (!node.data.isFull()){//if bus is not full increase count by one
-//                return 1;
-//            }
-//    }
-//        return countVacantBuses(node.next);
-////
-////        if (!node.data.isFull()) //if a bus is not full increase count by one
-////        {
-////            countVacantBuses(node.next);
-////            return 1;
-////        }
-//    }
-    public int countVacantBuses(Node node) {
+    /**
+     * Returns the number of buses that are not full in the station instance
+     * @return number of empty buses with vacancy at the bus station
+     */
+    public int countVacantBuses() {
+        Node node = this.head;
 
-   int count = 0;
-   while (node.next != null){
-       if (!node.data.isFull())
-           count +=1;
+        int count = 0;
+        while (node.next != null){
+            if (!node.data.isFull())
+                count +=1;
 
-       node = node.next;
+            node = node.next;
         }
 
-   return count;
+        return count;
     }
 
 
@@ -231,6 +220,26 @@ public class StationTerminal {
         return this.head.next;
     }
 
+    /**
+     * Finds and returns the first vacant bus going to a particular destination
+     * @param destination location
+     *
+     */
+    public Bus findbyLocation(String destination) {
+
+        Node node = this.head.next;
+
+        for (int index = 0; index < getSize(); index++) {
+            //First bus going to that location that isn't full
+            if (node.data.getDestination().toLowerCase().strip().compareTo(destination.toLowerCase().strip()) == 0
+                    && !(node.data.isFull()))
+                return node.data;
+            node = node.next;
+        }
+        //none found
+        return null;
+    }
+
 
     static  class Node{
         private Bus data;
@@ -270,3 +279,4 @@ public class StationTerminal {
         }
     }
 }
+
