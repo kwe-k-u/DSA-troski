@@ -1,5 +1,6 @@
 package com.duala.Objects;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -45,6 +46,23 @@ public class StationTerminal {
         return count;
     }
 
+
+    public Bus[] getAllAsList(){
+        Node node = this.head.next;
+
+        ArrayList<Bus> list = new ArrayList<>();
+        while (node.next != null){
+            list.add(node.data);
+            node = node.next;
+        }
+
+        Bus[] fine = new Bus[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+
+            fine[i] = list.get(i);
+        }
+        return fine;
+    }
 
     /**
      * Adds a node to the top of the list

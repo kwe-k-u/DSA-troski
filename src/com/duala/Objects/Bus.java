@@ -10,7 +10,7 @@ public class Bus {
     private int firstIndex;
     private String destination;
     private String driverName;
-    private String LICENSEPLATE;//TODO add getters and setters
+    private String LICENSEPLATE;
 
 
 
@@ -98,10 +98,10 @@ public class Bus {
     @Override
     public String toString() {
         return
-                ", size=" + size +
+                ", Registration Number='" + LICENSEPLATE + '\''+
+                        ", driverName='" + driverName + '\'' +
                 ", destination='" + destination + '\'' +
-                ", driverName='" + driverName + '\'' +
-                ", Registration Number='" + LICENSEPLATE + '\'' ;
+                        ", size=" + size ;
     }
 
     /**

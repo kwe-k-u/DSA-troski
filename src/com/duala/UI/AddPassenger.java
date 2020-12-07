@@ -18,7 +18,6 @@ public class AddPassenger extends JFrame {
     private JPanel addPassengerPanel;
     private JLabel txt1;
     private JLabel txt2;
-    private JLabel txt3;
     private JButton cancel;
 
 
@@ -46,7 +45,7 @@ public class AddPassenger extends JFrame {
                 // add to assigned vehicle
                 //close window and open some other window
 
-                Person newPassenger = new Person("location of station", passName.getText(), passDestination.getText());
+                Person newPassenger = new Person("station", passName.getText(), passDestination.getText());
 
 
                 Bus bus = caller.station.findbyLocation(passDestination.getText());
@@ -60,7 +59,7 @@ public class AddPassenger extends JFrame {
                 } else {
                     bus.addPassenger(newPassenger);
                     JDialog d = new JDialog();
-                    d.setContentPane(new JLabel("Addition successful"));
+                    d.setContentPane(new JLabel(" Passenger assigned to " + bus.toString()));
                     d.setVisible(true);
                     d.pack();
                     d.requestFocus();

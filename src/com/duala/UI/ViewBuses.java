@@ -6,6 +6,7 @@ import com.duala.Objects.Bus;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ViewBuses extends JFrame{
     private JPanel panel1;
@@ -15,18 +16,15 @@ public class ViewBuses extends JFrame{
     private JButton removeBus;
     private JList busList;
     private JLabel lab = new JLabel("someting");
-    private JFrame caller;
+    private StationTerminalUI caller;
 
-    public ViewBuses(JFrame caller){
+    public ViewBuses(StationTerminalUI caller){
+        busList.setListData(caller.station.getAllAsList());
+        add(panel1);
+        this.caller = caller;
 
-        Bus bus = new Bus("GH456", "Nima","Kofi Mansa");
-        String[] test = {bus.toString(),bus.toString(),bus.toString()};
-        busList.setListData(test);
-    add(panel1);
-    this.caller = caller;
-
-    pack();
-    setVisible(true);
+        pack();
+        setVisible(true);
 
         close.addActionListener(new ActionListener() {
             @Override
