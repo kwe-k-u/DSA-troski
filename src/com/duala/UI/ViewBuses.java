@@ -10,25 +10,28 @@ import java.util.ArrayList;
 
 public class ViewBuses extends JFrame{
     private JPanel panel1;
-    private JTabbedPane BusList;
     private JButton close;
     private JButton addBus;
     private JButton removeBus;
+    private JTabbedPane tabbedPane;
     private JList busList;
-    private JLabel lab = new JLabel("someting");
     private StationTerminalUI caller;
+
+    private JFrame parent = this;
 
     public ViewBuses(StationTerminalUI caller){
         busList.setListData(caller.station.getAllAsList());
+        setSize(600,700);
         add(panel1);
         this.caller = caller;
 
-        pack();
+//        pack();
         setVisible(true);
 
         close.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 dispose();
             }
         });
@@ -37,9 +40,16 @@ public class ViewBuses extends JFrame{
         removeBus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO figure out how to remove vehicle from listview
-//                busList.setListData();
-//                busList.repaint();
+                //TODO let bus addition and removal update on list dynamically
+                new RemoveBus(caller);
+
+            }
+        });
+        addBus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                new AddBus(caller);
             }
         });
     }

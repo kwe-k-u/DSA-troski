@@ -14,7 +14,6 @@ public class AddPassenger extends JFrame {
     private JButton bookSeatButton;
     private JTextField passName;
     private JTextField passDestination;
-    private JComboBox availableBuses;
     private JPanel addPassengerPanel;
     private JLabel txt1;
     private JLabel txt2;
@@ -27,9 +26,7 @@ public class AddPassenger extends JFrame {
     public AddPassenger(StationTerminalUI caller){
 
 
-        availableBuses.addItem("test");
-        availableBuses.addItem("test1");
-        availableBuses.addItem("test12");
+
         this.caller = caller;
 
 

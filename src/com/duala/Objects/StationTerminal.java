@@ -189,7 +189,7 @@ public class StationTerminal {
         Node current = this.head.next;
 
         for (int index = 0; index < getSize(); index++) {
-            if (current.data == data)
+            if (current.data.getLicensePlate().strip().toLowerCase() == data.getLicensePlate().strip().toLowerCase())
                 break;
             current = current.next;
 

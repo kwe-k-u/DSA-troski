@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StationTerminal station = new StationTerminal();
-        JFrame window = new StationTerminalUI(station);
+
+        StationTerminalUI window = new StationTerminalUI(new StationTerminal());
 
 
 
@@ -42,11 +42,11 @@ public class Main {
 
 
 
-        station.addFirst(tema);
-        station.addFirst(nima);
-        station.addFirst(kaneshie);
-        station.addFirst(newTown);
-        station.addFirst(accra);
+        window.station.addFirst(tema);
+        window.station.addFirst(nima);
+        window.station.addFirst(kaneshie);
+        window.station.addFirst(newTown);
+        window.station.addFirst(accra);
 
 
 

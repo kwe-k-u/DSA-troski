@@ -22,6 +22,11 @@ public class Bus {
     }
 
 
+    public Bus(String plate){
+        setLicensePlate(plate);
+    }
+
+
 
 
     private int findEmpty(){
