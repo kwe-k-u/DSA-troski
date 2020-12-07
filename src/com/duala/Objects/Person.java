@@ -7,7 +7,7 @@ public class Person {
     private String pickup;
     private String destination;
     private double fare;
-    private Bus assignedBus; //TODO get setters and getters
+    private Bus assignedBus;
 
     //Constructor
     public Person(String pickup, String name, String destination){
@@ -113,6 +113,17 @@ public class Person {
                 this.getPickup() == person.getName();
     }
 
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", pickup='" + pickup + '\'' +
+                ", destination='" + destination + '\'' +
+                ", fare=" + fare +
+                ", assignedBus=" + assignedBus +
+                '}';
+    }
 
     @Override
     public int hashCode() {
