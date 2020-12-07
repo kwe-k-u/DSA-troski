@@ -15,12 +15,14 @@ public class ViewBuses extends JFrame{
     private JButton removeBus;
     private JTabbedPane tabbedPane;
     private JList busList;
+    private JList historyList;
     private StationTerminalUI caller;
 
     private JFrame parent = this;
 
     public ViewBuses(StationTerminalUI caller){
         busList.setListData(caller.station.getAllAsList());
+        historyList.setListData(caller.history.getAllAsList());
         setSize(600,700);
         add(panel1);
         this.caller = caller;

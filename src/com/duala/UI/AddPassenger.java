@@ -51,7 +51,7 @@ public class AddPassenger extends JFrame {
                     d.setContentPane(new JLabel("Addition failed"));
                     d.setVisible(true);
                     d.pack();
-                    d.requestFocus();
+                    caller.history.push("Passenger addition failed: " + newPassenger.toString());
 
                 } else {
                     bus.addPassenger(newPassenger);
@@ -59,7 +59,7 @@ public class AddPassenger extends JFrame {
                     d.setContentPane(new JLabel(" Passenger assigned to " + bus.toString()));
                     d.setVisible(true);
                     d.pack();
-                    d.requestFocus();
+                    caller.history.push("Added passenger: " + newPassenger.toString());
 
                 }
                 dispose();

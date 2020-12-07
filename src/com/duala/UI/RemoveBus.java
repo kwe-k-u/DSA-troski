@@ -24,7 +24,9 @@ public class RemoveBus extends JFrame{
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parent.station.remove(new Bus(plateNumber.getText().trim()));
+                Bus bus = new Bus(plateNumber.getText().trim());
+                parent.station.remove(bus);
+                parent.history.push("Removed bus: " + bus.toString());
                 dispose();
             }
         });

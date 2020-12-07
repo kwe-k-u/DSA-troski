@@ -29,7 +29,9 @@ public class AddBus extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                parent.station.addFirst( new Bus(plate.getText(),destination.getText(), driverName.getText()) );
+                Bus bus = new Bus(plate.getText(),destination.getText(), driverName.getText());
+                parent.station.addFirst( bus );
+                parent.history.push("Added bus: " + bus.toString());
                 dispose();
 
             }

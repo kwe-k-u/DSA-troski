@@ -1,5 +1,6 @@
 package com.duala.UI;
 
+import com.duala.Objects.History;
 import com.duala.Objects.StationTerminal;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ public class StationTerminalUI extends JFrame {
 
     private StationTerminalUI parent = this;
     public StationTerminal station;
+    public History history;
 
 
 

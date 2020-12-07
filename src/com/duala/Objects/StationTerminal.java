@@ -296,5 +296,9 @@ public class StationTerminal {
             return Objects.hash(data, next);
         }
     }
+
+
+
+
 }
 
