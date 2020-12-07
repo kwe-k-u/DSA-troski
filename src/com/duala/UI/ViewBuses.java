@@ -22,7 +22,16 @@ public class ViewBuses extends JFrame{
 
     public ViewBuses(StationTerminalUI caller){
         busList.setListData(caller.station.getAllAsList());
+
         historyList.setListData(caller.history.getAllAsList());
+
+//        String[] test = {"some dude", "other dude", "last dude"};
+//
+//        historyList.setListData(test);
+
+
+
+
         setSize(600,700);
         add(panel1);
         this.caller = caller;

@@ -24,6 +24,7 @@ public class StationTerminalUI extends JFrame {
     public StationTerminalUI(StationTerminal stat){
 
         this.station = stat;
+        this.history = new History();
         setContentPane(DesktopUI);
         pack();
         setTitle("Troski System");

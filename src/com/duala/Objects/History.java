@@ -1,20 +1,39 @@
 package com.duala.Objects;
+
+
 //History of additions and removals modeled with a stack
 public class History {
     public Node top;
     public int size;
 
-    History(){
+    public History(){
         top = new Node(null,"");
     }
 
     public String[] getAllAsList() {
-        //TODO return all values as list
+
         String[] list = new String[size];
+        Node node = top;
         for (int i = 0; i < size; i++) {
-//            list[i] = next node
+            list[i] = node.entry;
+            node = node.previous;
+
         }
-        return new String[size];
+        return list;
+    }
+
+    public Node pop(){
+        Node first = top;
+        top = top.previous;
+        return first;
+    }
+
+
+    public Node push(String entry){
+        Node node = new Node(top, entry);
+        top = node;
+        size++;
+        return node;
     }
 
 
@@ -28,8 +47,4 @@ public class History {
         }
     }
 
-
-    public void  push(String data){
-        //TODO add data to stack
-    }
 }

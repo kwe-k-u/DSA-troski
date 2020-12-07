@@ -5,7 +5,6 @@ import com.duala.Objects.Person;
 import com.duala.Objects.StationTerminal;
 import com.duala.UI.StationTerminalUI;
 
-import javax.swing.*;
 
 public class Main {
 
@@ -30,23 +29,37 @@ public class Main {
 
         //giving some buses passengers
         tema.addPassenger(kofi);
+        window.history.push("Passenger added: " + kofi.toString());
         tema.addPassenger(ama);
+        window.history.push("Passenger added: " + ama.toString());
         kaneshie.addPassenger(kofi);
+        window.history.push("Passenger added: " + kofi.toString());
         tema.addPassenger(kofi);
+        window.history.push("Passenger added: " + kofi.toString());
         accra.addPassenger(esi);
+        window.history.push("Passenger added: " + esi.toString());
         newTown.addPassenger(akosua);
+        window.history.push("Passenger added: " + akosua.toString());
         accra.addPassenger(akosua);
+        window.history.push("Passenger added: " + akosua.toString());
         nima.addPassenger(akosua);
+        window.history.push("Passenger added: " + akosua.toString());
         newTown.addPassenger(akosua);
+        window.history.push("Passenger added: " + akosua.toString());
 
 
 
 
         window.station.addFirst(tema);
+        window.history.push("Bus added: " + tema.toString());
         window.station.addFirst(nima);
+        window.history.push("Bus added: " + nima.toString());
         window.station.addFirst(kaneshie);
+        window.history.push("Bus added: " + kaneshie.toString());
         window.station.addFirst(newTown);
+        window.history.push("Bus added: " + newTown.toString());
         window.station.addFirst(accra);
+        window.history.push("Bus added: " + accra.toString());
 
 
 
